@@ -27,7 +27,7 @@ def scrape():
     browser = Browser('chrome', **executable_path, headless=False)
 
     ## Give the browser time to open properly ("Run all cells" only)
-    time.sleep(5)
+    #time.sleep(5)
 
 
     # %%
@@ -38,7 +38,7 @@ def scrape():
     browser.visit(url)
     
     ## Allow page to fully load ("Run all cells" only)
-    time.sleep(15)
+    #time.sleep(15)
 
 
     # %%
@@ -99,14 +99,14 @@ def scrape():
     ## Identify and return paragraph text
     news_p = ls_texts[0].find('div', class_='article_teaser_body').text
 
-    print(f"{news_title}: {news_p}")
+    #print(f"{news_title}: {news_p}")
 
 
     # %%
     ## Close the test browser
     browser.quit()
     ## Give the browser time to close properly ("Run all cells" only)
-    time.sleep(5)
+    #time.sleep(5)
 
     # %% [markdown]
     # ## JPL Mars Space Images - Featured Image
@@ -126,7 +126,7 @@ def scrape():
     browser = Browser('chrome', **executable_path, headless=False)
 
     ## Give the browser time to open properly ("Run all cells" only)
-    time.sleep(5)
+    #time.sleep(5)
 
 
     # %%
@@ -137,7 +137,7 @@ def scrape():
     browser.visit(url)
 
     ## Allow page to fully load ("Run all cells" only)
-    time.sleep(15)
+    #time.sleep(15)
 
 
     # %%
@@ -173,34 +173,34 @@ def scrape():
     img_url = soup.find("img", class_="fancybox-image")["src"]
 
     featured_image_url = "https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/" + img_url
-    featured_image_url
+    print(featured_image_url)
 
 
     # %%
     ### Just for fun, not needed for assignment
 
-    import shutil
-    from IPython.display import Image
+    #import shutil
+    #from IPython.display import Image
     
     # Use the requests library to download and save the image from the `img_url` above
-    response = requests.get(featured_image_url, stream=True)
-    with open('featured_img.png', 'wb') as out_file:
-        shutil.copyfileobj(response.raw, out_file)
+    #response = requests.get(featured_image_url, stream=True)
+    #with open('featured_img.png', 'wb') as out_file:
+    #    shutil.copyfileobj(response.raw, out_file)
 
 
     # %%
     ### Just for fun, not needed for assignment
 
     # Display the image with IPython.display
-    from IPython.display import Image
-    Image(url='featured_img.png')
+    #from IPython.display import Image
+    #Image(url='featured_img.png')
 
 
     # %%
     ## Close the test browser
     browser.quit()
     ## Give the browser time to close properly ("Run all cells" only)
-    time.sleep(5)
+    #time.sleep(5)
 
     # %% [markdown]
     # ## Mars Facts
@@ -225,7 +225,7 @@ def scrape():
     # %%
     ## The table in tables[0] holds Mars data
     ## Pandas also had a `to_html` method that can be used to generate HTML tables from DataFrames
-    tables[0].to_html("Mars_Facts.html") # this saves the filename in the parenthesis
+    #tables[0].to_html("Mars_Facts.html") # this saves the filename in the parenthesis
 
     ## Save table in a variable for use in the Flask
     mars_facts = tables[0].to_html()
@@ -250,7 +250,7 @@ def scrape():
     browser = Browser('chrome', **executable_path, headless=False)
 
     ## Give the browser time to open properly ("Run all cells" only)
-    time.sleep(5)
+    #time.sleep(5)
 
 
     # %%
@@ -261,7 +261,7 @@ def scrape():
     browser.visit(url)
 
     ## Allow page to fully load ("Run all cells" only)
-    time.sleep(15)
+    #time.sleep(15)
 
 
     # %%
@@ -284,7 +284,7 @@ def scrape():
 
     ## soup.find_all results are returned as an iterable list
     ls_hemi_results = soup.find_all("div", class_="item")
-    len(ls_hemi_results)
+    #len(ls_hemi_results)
 
 
     # %%
@@ -332,14 +332,14 @@ def scrape():
 
 
     # %%
-    hemisphere_image_urls
+    #hemisphere_image_urls
 
 
     # %%
     ## Close the test browser
     browser.quit()
     ## Give the browser time to close properly ("Run all cells" only)
-    time.sleep(5)
+    #time.sleep(5)
 
     # %% [markdown]
     # # Step 2 - MongoDB and Flask Application
