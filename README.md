@@ -1,6 +1,6 @@
 # 12-web-scraping-challenge_Mars
 
-1. Test and complete scraping within Jupyter notebook
+1. Test and complete scraping within Jupyter notebook \n
     a. featured_image.png was created for fun and testing, needs to be commented out before converting this to a Python script (.py)
     
 2. The last cell in the Jupyter notebook produces a list of dictionaries. These will be called on within our HTML (ex, mars["Mars Hemishphere URLs"][3]["img_url"])
