@@ -17,9 +17,9 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
 
-    <h2>Latest Mars News</h2>
-    <h3> {{ mars["News Title"] }}</h3>
-    <p> {{ mars["News Paragraph"] }}</p>
+    <h2><strong>Latest Mars News</strong></h2>
+    <h3><strong> {{ mars["News Title"] }} </strong></h3>
+    <h4> {{ mars["News Paragraph"] }}</h4>
   </div>
   </div>
 
@@ -30,7 +30,7 @@
     <div class = "row">
         <div class = "col-md-6">
           <h3> Featured Mars Image</h3>
-          <img src="{{ mars["Featured Image"] }}" height = 300>
+          <img src=" {{ mars["Featured Image"] }}" height = 300>
         </div>
 
         <div class = "col-md-6">
@@ -41,10 +41,38 @@
     <hr>
   </div>
 
+  <hr>
+
   <div class = "container">
     <div class = "row">
-      <h1> Mars Hemispheres</h1>
-      <p> {{ mars["Mars Hemishphere URLs"] | safe }} </p>
+      <h1 style="text-align:center;"> Mars Hemispheres</h1>
+      
+      <div class = "col-md-6">
+        <center> <img src=" {{ mars["Mars Hemishphere URLs"][0]["img_url"] }}" height = 500> </center>
+        <h3 style="text-align:center;"> {{ mars["Mars Hemishphere URLs"][0]["title"] }}</h3>
+      </div>
+
+      <div class = "col-md-6">
+        <center> <img src=" {{ mars["Mars Hemishphere URLs"][1]["img_url"] }}" height = 500> </center>
+        <h3 style="text-align:center;"> {{ mars["Mars Hemishphere URLs"][1]["title"] }}</h3>
+      </div>
+
+      <div class = "col-md-6">
+        <center> <img src=" {{ mars["Mars Hemishphere URLs"][2]["img_url"] }}" height = 500> </center>
+        <h3 style="text-align:center;"> {{ mars["Mars Hemishphere URLs"][2]["title"] }}</h3>
+      </div>
+
+      <div class = "col-md-6">
+      <center> <img src=" {{ mars["Mars Hemishphere URLs"][3]["img_url"] }}" height = 500> <center>
+        <h3 style="text-align:center;"> {{ mars["Mars Hemishphere URLs"][3]["title"] }}</h3>
+      </div>
+      
+
+      <!-- {% for img in mars["Mars Hemishphere URLs"] %}
+        <img src=" {{ img.img_url }}" height = 500>
+        <h3> {{img.title}} </h3>
+      {% endfor %} -->
+
     </div>
   </div>
 

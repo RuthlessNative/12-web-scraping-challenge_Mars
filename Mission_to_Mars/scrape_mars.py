@@ -24,7 +24,7 @@ def scrape():
     # %%
     ## Setup splinter to open test browser
     executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', **executable_path, headless=True)
 
     ## Give the browser time to open properly ("Run all cells" only)
     #time.sleep(5)
@@ -123,7 +123,7 @@ def scrape():
     # %%
     ## Setup splinter to open test browser
     executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', **executable_path, headless=True)
 
     ## Give the browser time to open properly ("Run all cells" only)
     #time.sleep(5)
@@ -218,8 +218,10 @@ def scrape():
     # %%
     ## Use the `read_html` function in Pandas to automatically scrape any tabular data from a page
     tables = pd.read_html(url)
+
+
     ## Show list of tables
-    tables
+    print(tables)
 
 
     # %%
@@ -228,9 +230,11 @@ def scrape():
     #tables[0].to_html("Mars_Facts.html") # this saves the filename in the parenthesis
 
     ## Save table in a variable for use in the Flask
-    mars_facts = tables[0].to_html()
-
-    ## or just use the code below to show the results:
+    ## Pass through a DF in order to be able to rename header columns
+    ## Set index=False to remove index colum
+    mars_facts = pd.DataFrame.from_records(tables[0].values, columns=["Features:", "Values:"]).to_html(index=False)
+    
+    ## Use the code below to show the raw results:
     #tables[0].to_html()
 
     # %% [markdown]
@@ -247,7 +251,7 @@ def scrape():
     # %%
     ## Setup splinter to open test browser
     executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', **executable_path, headless=True)
 
     ## Give the browser time to open properly ("Run all cells" only)
     #time.sleep(5)
